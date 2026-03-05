@@ -1,5 +1,9 @@
 <h3 style="text-align: {{section.settings.title_alignment}};">{{ section.settings.title }}</h3>
 
+{% if settings.promotion_name != blank %}
+  <p>Active promotion: {{ settings.promotion_name }}</p>
+{% endif %}
+
 <div style="display: flex; justify-content: center; gap: 20px;">
   {% for block in section.blocks %}
     {% if block.type == 'promotion' %}
