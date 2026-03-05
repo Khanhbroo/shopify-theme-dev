@@ -90,6 +90,34 @@
         "padding-block-end": 72
       }
     },
+    "promotions_group_WgAmNV": {
+      "type": "promotions-group",
+      "blocks": {
+        "promotion_F6c4Wf": {
+          "type": "promotion",
+          "settings": {
+            "title": "My Promotion",
+            "image_with_text": "shopify://shop_images/Main_9129b69a-0c7b-4f66-b6cf-c4222f18028a.jpg"
+          }
+        },
+        "promotion_mf87cz": {
+          "type": "promotion",
+          "settings": {
+            "title": "Promotion 2",
+            "image_with_text": "shopify://shop_images/Main_b13ad453-477c-4ed1-9b43-81f3345adfd6.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "promotion_F6c4Wf",
+        "promotion_mf87cz"
+      ],
+      "name": "Promotions Group",
+      "settings": {
+        "title": "Promotion Test",
+        "title_alignment": "center"
+      }
+    },
     "section_pkByWz": {
       "type": "section",
       "blocks": {
@@ -446,6 +474,7 @@
   },
   "order": [
     "hero_jVaWmY",
+    "promotions_group_WgAmNV",
     "section_pkByWz",
     "product_list_fa6P9H"
   ]
