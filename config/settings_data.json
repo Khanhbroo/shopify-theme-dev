@@ -76,6 +76,148 @@
     "variant_button_border_width": 1,
     "variant_button_radius": 14,
     "variant_button_width": "equal-width-buttons",
+    "sections": {
+      "slideshow": {
+        "type": "slideshow",
+        "blocks": {
+          "slide_jQqQ4H": {
+            "type": "_slide",
+            "name": "t:names.slide",
+            "settings": {
+              "media_type_1": "image",
+              "content_direction": "column",
+              "vertical_on_mobile": true,
+              "horizontal_alignment": "flex-start",
+              "vertical_alignment": "center",
+              "align_baseline": false,
+              "horizontal_alignment_flex_direction_column": "center",
+              "vertical_alignment_flex_direction_column": "center",
+              "gap": 12,
+              "inherit_color_scheme": false,
+              "color_scheme": "scheme-6",
+              "toggle_overlay": false,
+              "overlay_color": "#00000026",
+              "overlay_style": "solid",
+              "gradient_direction": "to top",
+              "padding-block-start": 48,
+              "padding-block-end": 48,
+              "padding-inline-start": 48,
+              "padding-inline-end": 48
+            },
+            "blocks": {
+              "text_fd3zjt": {
+                "type": "text",
+                "settings": {
+                  "text": "<h2>New arrivals</h2>",
+                  "width": "fit-content",
+                  "max_width": "normal",
+                  "alignment": "left",
+                  "type_preset": "rte",
+                  "font": "var(--font-body--family)",
+                  "font_size": "1rem",
+                  "line_height": "normal",
+                  "letter_spacing": "normal",
+                  "case": "none",
+                  "wrap": "pretty",
+                  "color": "var(--color-foreground)",
+                  "background": false,
+                  "background_color": "#00000026",
+                  "corner_radius": 0,
+                  "padding-block-start": 0,
+                  "padding-block-end": 0,
+                  "padding-inline-start": 0,
+                  "padding-inline-end": 0
+                },
+                "blocks": {}
+              },
+              "text_8JpUqG": {
+                "type": "text",
+                "settings": {
+                  "text": "<p>Introducing our latest products, made especially for the season. Shop your favorites before they're gone!</p>",
+                  "width": "fit-content",
+                  "max_width": "normal",
+                  "alignment": "left",
+                  "type_preset": "rte",
+                  "font": "var(--font-body--family)",
+                  "font_size": "1rem",
+                  "line_height": "normal",
+                  "letter_spacing": "normal",
+                  "case": "none",
+                  "wrap": "pretty",
+                  "color": "var(--color-foreground)",
+                  "background": false,
+                  "background_color": "#00000026",
+                  "corner_radius": 0,
+                  "padding-block-start": 0,
+                  "padding-block-end": 20,
+                  "padding-inline-start": 0,
+                  "padding-inline-end": 0
+                },
+                "blocks": {}
+              },
+              "button_QWXVYG": {
+                "type": "button",
+                "settings": {
+                  "label": "Shop now",
+                  "link": "shopify://collections/all",
+                  "open_in_new_tab": false,
+                  "style_class": "button",
+                  "width": "fit-content",
+                  "custom_width": 100,
+                  "width_mobile": "fit-content",
+                  "custom_width_mobile": 100
+                },
+                "blocks": {}
+              }
+            },
+            "block_order": [
+              "text_fd3zjt",
+              "text_8JpUqG",
+              "button_QWXVYG"
+            ]
+          }
+        },
+        "block_order": [
+          "slide_jQqQ4H"
+        ],
+        "settings": {
+          "display_mode": "full_frame",
+          "section_width": "page-width",
+          "full_frame_on_mobile": false,
+          "slideshow_gap": 12,
+          "corner_radius": 0,
+          "slide_height": "medium",
+          "content_position": "on-media",
+          "color_scheme": "",
+          "icons_style": "arrows_large",
+          "icons_shape": "none",
+          "slideshow_controls_style": "dots",
+          "autoplay": false,
+          "autoplay_speed": 4,
+          "padding-block-start": 0,
+          "padding-block-end": 0
+        }
+      },
+      "promotions-group": {
+        "type": "promotions-group",
+        "blocks": {
+          "promotion_zgtXRc": {
+            "type": "promotion",
+            "settings": {
+              "title": "Liquid",
+              "image_with_text": "shopify://shop_images/Main_d624f226-0a89-4fe1-b333-0d1548b43c06.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "promotion_zgtXRc"
+        ],
+        "settings": {
+          "title": "Hello",
+          "title_alignment": "center"
+        }
+      }
+    },
     "content_for_index": [],
     "blocks": {
       "4875927558509831969": {
