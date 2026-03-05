@@ -54,10 +54,7 @@
           "blocks": {}
         }
       },
-      "block_order": [
-        "text_YLPk4p",
-        "button_H9gpTf"
-      ],
+      "block_order": ["text_YLPk4p", "button_H9gpTf"],
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
@@ -108,10 +105,7 @@
           }
         }
       },
-      "block_order": [
-        "promotion_F6c4Wf",
-        "promotion_mf87cz"
-      ],
+      "block_order": ["promotion_F6c4Wf", "promotion_mf87cz"],
       "name": "Promotions Group",
       "settings": {
         "title": "Promotion Test",
