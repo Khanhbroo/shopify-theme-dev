@@ -1,0 +1,221 @@
+{{ 'tutorial.css' | asset_url | stylesheet_tag }}
+
+{% comment %} Filter {% endcomment %}
+
+{% comment %} Number Filter {% endcomment %}
+{% comment %} Casting Filter Trick {% endcomment %}
+{% assign my_number = '9' %}
+{% assign my_number = my_number | plus: 0 %}
+
+{{ my_number }}
+
+{% if my_number > 5 %}
+  <p>My number is greater than 5</p>
+{% endif %}
+
+{% comment %} Modulo Fitler {% endcomment %}
+
+{% assign modulo_of_my_number = my_number | modulo: 2 %}
+{% if modulo_of_my_number == 0 %}
+  <p>Even</p>
+{% else %}
+  <p>Odd</p>
+{% endif %}
+
+{% comment %} Abs Filter {% endcomment %}
+{% assign my_abs_number = -11 | abs %}
+<p>{{ my_abs_number }}</p>
+
+{% comment %} Round Filter {% endcomment %}
+{% assign my_round_number = 10.6 | round %}
+<p>{{ my_round_number }}</p>
+
+{% comment %} Floor Filter {% endcomment %}
+{% assign my_floor_number = 10.6 | floor %}
+<p>{{ my_floor_number }}</p>
+
+{% comment %} Ceil Filter {% endcomment %}
+{% assign my_ceil_number = 10.4 | ceil %}
+<p>{{ my_ceil_number }}</p>
+
+{% comment %} Max Filter {% endcomment %}
+{% assign my_cap_value = 100 %}
+<p>{{ my_cap_value | at_most: 80 }}</p>
+
+{% comment %} Min Filter {% endcomment %}
+{% assign my_cap_value_2 = 80 %}
+<p>{{ my_cap_value_2 | at_least: 100 }}</p>
+
+{% comment %} String Fitler {% endcomment %}
+{% comment %} Uppercase Fitler {% endcomment %}
+{% assign my_upcase_string = 'Hello World' %}
+<p>{{ my_upcase_string | upcase }}</p>
+
+{% comment %} Lowercase Filter {% endcomment %}
+{% assign my_downcase_string = 'HELLO WORLD' %}
+{{ my_downcase_string | downcase }}
+
+{% comment %} Capitalize Fitler {% endcomment %}
+{% assign my_capitalize_string = 'hello world' %}
+<p>{{ my_capitalize_string | capitalize }}</p>
+
+{% comment %} Append Filter {% endcomment %}
+{% assign my_append_string = 'Hello World' %}
+<p>{{ my_append_string | append: ' Some extra text' | upcase }}</p>
+
+{% comment %} Prepend Filter {% endcomment %}
+{% assign my_prepend_string = 'Hello World' %}
+<p>{{ my_prepend_string | prepend: 'Some extra text ' | downcase }}</p>
+
+{% comment %} Filter Order Matter {% endcomment %}
+{% assign my_order_string = 'Hello World' %}
+<p>{{ my_order_string | downcase | append: ' TEST' }}</p>
+
+{% comment %} Strip HTML Filter {% endcomment %}
+{% assign my_html_text = "<p style='color: red'>This is a really long string</p>" %}
+{{ my_html_text | strip_html }}
+
+{% comment %} Truncate Filter {% endcomment %}
+{% assign my_truncate_string = 'This is a really long string' %}
+<p>{{ my_truncate_string | truncate: 20, ':((' }}</p>
+
+{% comment %} Truncate Words {% endcomment %}
+{% assign my_truncate_word = 'This is a really long string' %}
+<p>{{ my_truncate_word | truncatewords: 5, 'haha' }}</p>
+
+{% comment %} Apply both truncate and strip {% endcomment %}
+{{ my_html_text | strip_html | truncate: 20 }}
+
+{% comment %} New Line Filter {% endcomment %}
+{% assign my_multiline_text = '
+ This is the first line
+ This is the second line
+ This is the third line
+ '
+  | newline_to_br
+%}
+
+<p>{{ my_multiline_text }}</p>
+
+{% comment %} Replace Filter {% endcomment %}
+{% assign my_replace_text = 'Hello some extra text some extra text' %}
+<p>{{ my_replace_text | replace: 'text', 'words' }}</p>
+<p>{{ my_replace_text | replace_first: 'text', 'words' }}</p>
+<p>{{ my_replace_text | replace_last: 'text', 'words' }}</p>
+
+{% comment %} Remove Filter {% endcomment %}
+{% assign my_remove_text = 'Hello some extra text some extra text' %}
+<p>{{ my_remove_text | remove: 'some' }}</p>
+<p>{{ my_remove_text | remove_first: 'some' }}</p>
+<p>{{ my_remove_text | remove_last: 'some' }}</p>
+
+{% comment %} Array Filter {% endcomment %}
+{% comment %} Split {% endcomment %}
+{% assign my_array_string = '1,2,3,4' | split: ',' %}
+{% for string in my_array_string %}
+  <p>{{ string }}</p>
+{% endfor %}
+
+{% comment %} HTML and CSS combine {% endcomment %}
+{% assign my_languages = 'Vietnamese|pink, English|blue, Chinese|violet, Spanish|green' | split: ', ' %}
+{% for language in my_languages %}
+  {% assign language_name = language | split: '|' | first %}
+  {% assign language_color = language | split: '|' | last %}
+  <p style="color: {{language_color}}">{{ language_name }}</p>
+{% endfor %}
+
+{% assign products = collection.products %}
+{% assign product_titles = products | map: 'title' | reverse %}
+{% for product_title in product_titles %}
+  <p>{{ product_title }}</p>
+{% endfor %}
+<p>{{ product_titles | join: ' - ' }}</p>
+
+{% assign price_sorted_products = products | sort: 'price' %}
+{% for product in price_sorted_products %}
+  <p>{{ product.title }} - {{ product.price | money }}</p>
+{% endfor %}
+
+{% assign all_prices = products | map: 'price' | sort %}
+{% for price in all_prices %}
+  <p>{{ price | money }}</p>
+{% endfor %}
+
+{% assign all_prices_for_total = all_prices | sum %}
+{% if all_prices_for_total != blank %}
+  <p>Total of all items: {{ all_prices_for_total | money }}</p>
+{% endif %}
+
+{% assign snowboard = products | where: 'title', 'The Complete Snowboard' | first %}
+<p>{{ snowboard.title }} - {{ snowboard.price | money_with_currency }}</p>
+
+{% assign tags = '' %}
+{% for product in products %}
+  {% for tag in product.tags %}
+    {% assign tags = tags | append: tag | append: ' ' %}
+  {% endfor %}
+{% endfor %}
+
+{{ tags | strip | split: ' ' | uniq | join: ' ' }}
+
+{% comment %} JSON Filter {% endcomment %}
+{{ collection.products.first | json }}
+
+{% comment %} Color filter {% endcomment %}
+{% style %}
+  .highlight {
+    background-color: yellow;
+  }
+
+  .swatch {
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    display: block;
+  }
+
+  .image-wrapper {
+    width: 500px;
+    height: 500px;
+  }
+{% endstyle %}
+
+<p>{{ collection.description | default: 'This is a default description' }}</p>
+<p>{{ 'This is some text with more text' | highlight: 'text' }}</p>
+<p>©Copyright {{ 'now' | date: '%B %d, %Y' }}</p>
+
+{% assign background_color = '#ffffff' %}
+<div class="swatch" style="background: {{background_color |  color_darken: 20}}"></div>
+
+{% comment %} Image  {% endcomment %}
+{% comment %}
+  img_url
+  img_tag
+{% endcomment %}
+<div class="image-wrapper">
+  {{ collection.products.first.featured_image | image_url: width: 500, height: 500 | image_tag }}
+</div>
+
+<img
+  src="{{ 'snowboard.png' | asset_img_url: '500x500' }}"
+  alt="Snowboard"
+  loading="eager"
+  width="500"
+  height="500"
+  style="width: 500px; height: 500px; object-fit: cover;"
+>
+
+{% liquid
+  for product in collection.products
+    echo '<p>' | append: product.title | append: '</p>'
+  endfor
+%}
+
+<p>{{ tutorial-2 }}</p>
+<p>{{ title }}</p>
+<script>
+  console.log({{collection.products.first | json}})
+</script>
+
+<script src="{{'tutorial.js' |  asset_url}}" defer></script>
